@@ -1,5 +1,5 @@
 const MyPosts = () => {
-  return <div className="bg-red-300 text-fuchsia-600">Hi!!!!</div>;
+  return <div>Posts</div>;
 };
 
 export default MyPosts;
