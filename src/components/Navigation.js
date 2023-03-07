@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import * as cognito from "../cognito";
+import * as cognito from "../Cognito";
 import { useContext, useState, useEffect } from "react";
 import { AuthContext } from "../authentication/AuthContext";
 

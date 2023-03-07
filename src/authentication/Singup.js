@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import * as cognito from "../cognito";
+import * as cognito from "../Cognito";
 
 const Singup = () => {
   const navigate = useNavigate();

@@ -1,6 +1,6 @@
 import { useState, useContext } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import { signIn } from "../cognito";
+import { signIn } from "../Cognito";
 import { AuthContext } from "./AuthContext";
 
 const Login = () => {

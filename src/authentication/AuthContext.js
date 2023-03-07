@@ -1,5 +1,5 @@
 import { createContext, useState, useEffect } from "react";
-import * as cognito from "../cognito";
+import * as cognito from "../Cognito";
 
 export const AuthContext = createContext();
 

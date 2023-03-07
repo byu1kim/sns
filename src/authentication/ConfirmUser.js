@@ -1,5 +1,5 @@
 import { useState } from "react";
-import * as cognito from "../cognito";
+import * as cognito from "../Cognito";
 
 function ConfirmUser() {
   const queryParams = new URLSearchParams(window.location.search);
