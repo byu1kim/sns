@@ -1,15 +1,15 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Nav from "./Components/Nav";
-import Home from "./Routes/Home";
-import Profile from "./Routes/Profile";
-import MyPosts from "./Routes/MyPosts";
-import Login from "./Auth/Login";
-import Signup from "./Auth/Singup";
-import ConfirmUser from "./Auth/ConfirmUser";
-import ForgetPassword from "./Auth/ForgetPassword";
-import ResetPassword from "./Auth/ResetPassword";
+import Nav from "./Components/Nav.js";
+import Home from "./Routes/Home.js";
+import Profile from "./Routes/Profile.js";
+import MyPosts from "./Routes/MyPosts.js";
+import Login from "./Auth/Login.js";
+import Signup from "./Auth/Singup.js";
+import ConfirmUser from "./Auth/ConfirmUser.js";
+import ForgetPassword from "./Auth/ForgetPassword.js";
+import ResetPassword from "./Auth/ResetPassword.js";
 import PostDetail from "./Routes/PostDetail.js";
-import Footer from "./Components/Footer";
+import Footer from "./Components/Footer.js";
 
 function App() {
   return (
