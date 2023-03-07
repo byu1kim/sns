@@ -1,5 +1,5 @@
 import { useState } from "react";
-import * as cognito from "../Cognito";
+import * as cognito from "../Cognito.js";
 const Create = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");

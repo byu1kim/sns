@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import * as cognito from "../Cognito";
+import * as cognito from "../Cognito.js";
 import jwtDecode from "jwt-decode";
 
 const PostDetail = () => {

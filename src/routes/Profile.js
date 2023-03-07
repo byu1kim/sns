@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import * as cognito from "../Cognito";
+import * as cognito from "../Cognito.js";
 import jwtDecode from "jwt-decode";
 
 const Profile = () => {

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import * as cognito from "../Cognito";
+import * as cognito from "../Cognito.js";
 
 const MyPosts = () => {
   const [posts, setPosts] = useState();

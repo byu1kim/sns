@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { forgotPassword } from "../Cognito";
+import { forgotPassword } from "../Cognito.js";
 
 const ForgetPassword = () => {
   const navigate = useNavigate();
