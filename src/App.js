@@ -3,11 +3,11 @@ import Nav from "./components/Navigation.js";
 import Home from "./routes/Home.js";
 import Profile from "./routes/Profile.js";
 import MyPosts from "./routes/MyPosts.js";
-import Login from "./auth/Login.js";
-import Signup from "./auth/Singup.js";
-import ConfirmUser from "./auth/ConfirmUser.js";
-import ForgetPassword from "./auth/ForgetPassword.js";
-import ResetPassword from "./auth/ResetPassword.js";
+import Login from "./authentication/Login.js";
+import Signup from "./authentication/Singup.js";
+import ConfirmUser from "./authentication/ConfirmUser.js";
+import ForgetPassword from "./authentication/ForgetPassword.js";
+import ResetPassword from "./authentication/ResetPassword.js";
 import PostDetail from "./routes/PostDetail.js";
 import Footer from "./components/Footer.js";
 
