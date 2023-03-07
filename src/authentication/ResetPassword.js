@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { resetPassword } from "../Cognito.js";
+import * as cognito from "../Cognito.js";
 
 const ResetPassword = () => {
   const navigate = useNavigate();
@@ -17,7 +17,7 @@ const ResetPassword = () => {
       setError("Password does not match!");
     } else {
       try {
-        await resetPassword({ username, code, newPassword: password });
+        await cognito.resetPassword({ username, code, newPassword: password });
         navigate("/login");
       } catch (e) {
         setError(e.message);

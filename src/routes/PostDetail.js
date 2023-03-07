@@ -27,7 +27,7 @@ const PostDetail = () => {
         });
     }
     getPosts();
-  }, []);
+  }, [id]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();

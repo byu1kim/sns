@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { forgotPassword } from "../Cognito.js";
+import * as cognito from "../Cognito.js";
 
 const ForgetPassword = () => {
   const navigate = useNavigate();
@@ -11,7 +11,7 @@ const ForgetPassword = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await forgotPassword({ username });
+      await cognito.forgotPassword({ username });
       navigate("/reset");
     } catch (e) {
       setError(e.message);

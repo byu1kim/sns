@@ -4,7 +4,6 @@ import * as cognito from "../Cognito.js";
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const [token, setToken] = useState("");
   const [user, setUser] = useState("");
 
   useEffect(() => {

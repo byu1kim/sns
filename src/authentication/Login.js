@@ -1,6 +1,6 @@
 import { useState, useContext } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import { signIn } from "../Cognito.js";
+import * as cognito from "../Cognito.js";
 import { AuthContext } from "./AuthContext";
 
 const Login = () => {
@@ -14,7 +14,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await signIn({ username, password });
+      await cognito.signIn({ username, password });
       setUser(user);
       navigate("/profile");
     } catch (e) {
