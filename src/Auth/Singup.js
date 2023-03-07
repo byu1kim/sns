@@ -35,7 +35,7 @@ const Singup = () => {
 
         console.log(result);
         setError("Check your email");
-        //navigate(`/confirm?username=${username}`);
+        navigate(`/confirm?username=${username}`);
       } catch (e) {
         setError(e.message);
         console.log(e.message);
@@ -48,7 +48,7 @@ const Singup = () => {
       <h1 className="text-center text-2xl font-bold text-emerald-500 mt-7">Sing Up</h1>
 
       <form onSubmit={handleSubmit} className="p-5 flex flex-col">
-        <div className="flex flex-col rounded-lg p-1 m-2 shadow-sm border-gray-200 border">
+        <div className="flex flex-col rounded-lg p-1 m-2 shadow-sm border-gray-200 border bg-white">
           <label htmlFor="firstname" className="text-xs pl-1 text-gray-400">
             First Name
           </label>
@@ -64,7 +64,7 @@ const Singup = () => {
           />
         </div>
 
-        <div className="flex flex-col rounded-lg p-1 m-2 shadow-sm border-gray-200 border">
+        <div className="flex flex-col rounded-lg p-1 m-2 shadow-sm border-gray-200 border bg-white">
           <label htmlFor="lastname" className="text-xs pl-1 text-gray-400">
             Last Name
           </label>
@@ -80,7 +80,7 @@ const Singup = () => {
           />
         </div>
 
-        <div className="flex flex-col rounded-lg p-1 m-2 shadow-sm border-gray-200 border">
+        <div className="flex flex-col rounded-lg p-1 m-2 shadow-sm border-gray-200 border bg-white">
           <label htmlFor="username" className="text-xs pl-1 text-gray-400">
             Username
           </label>
@@ -96,7 +96,7 @@ const Singup = () => {
           />
         </div>
 
-        <div className="flex flex-col rounded-lg p-1 m-2 shadow-sm border-gray-200 border">
+        <div className="flex flex-col rounded-lg p-1 m-2 shadow-sm border-gray-200 border bg-white">
           <label htmlFor="email" className="text-xs pl-1 text-gray-400">
             Email
           </label>
@@ -112,7 +112,7 @@ const Singup = () => {
           />
         </div>
 
-        <div className="flex flex-col rounded-lg p-1 m-2 shadow-sm border-gray-200 border">
+        <div className="flex flex-col rounded-lg p-1 m-2 shadow-sm border-gray-200 border bg-white">
           <label htmlFor="password" className="text-xs pl-1 text-gray-400">
             Password
           </label>
@@ -125,7 +125,7 @@ const Singup = () => {
           />
         </div>
 
-        <div className="flex flex-col rounded-lg p-1 m-2 shadow-sm border-gray-200 border">
+        <div className="flex flex-col rounded-lg p-1 m-2 shadow-sm border-gray-200 border bg-white">
           <label htmlFor="passwordconfirm" className="text-xs pl-1 text-gray-400">
             Password confirmation
           </label>

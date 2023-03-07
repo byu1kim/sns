@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import * as cognito from "../cognito";
+import jwtDecode from "jwt-decode";
 
 const PostDetail = () => {
   const [post, setPost] = useState();
@@ -9,7 +10,7 @@ const PostDetail = () => {
   const [comments, setComments] = useState([]);
 
   let { id } = useParams();
-
+  let decoded = token ? jwtDecode(token) : "";
   useEffect(() => {
     async function getPosts() {
       const a = await cognito.getAccessToken();
@@ -85,6 +86,13 @@ const PostDetail = () => {
                       </div>
                       <div>{item.content}</div>
                       <div className="text-xs">{item.created.split("T")[0]}</div>
+                      {post.user_id === decoded.sub ? (
+                        <button>
+                          <i className="fa-regular fa-trash-can"></i>
+                        </button>
+                      ) : (
+                        ""
+                      )}
                     </li>
                   </ul>
                 ))

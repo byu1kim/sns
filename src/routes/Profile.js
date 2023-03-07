@@ -21,7 +21,8 @@ const Profile = () => {
   }, []);
   return (
     <div className="max-w-xl  m-auto">
-      <div className="flex flex-col items-center p-7 bg-white m-5 shadow-lg rounded-lg">
+      <div className="flex flex-col items-center p-5 mt-10 bg-white m-5 shadow-lg rounded-lg">
+        <h1 className="text-center text-2xl font-bold text-emerald-500 mt-7 pb-5">Profile</h1>
         {user ? (
           <>
             <div className="h-32 w-32 rounded-full bg-emerald-500"></div>

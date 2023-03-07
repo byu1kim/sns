@@ -31,7 +31,7 @@ const Nav = () => {
 
   return (
     <nav className="bg-emerald-500 text-white flex flex-wrap items-center justify-between w-full py-4 px-4">
-      <div className="font-bold">
+      <div className="font-bold pl-2">
         <a href="/">BChat</a>
       </div>
 
@@ -60,12 +60,6 @@ const Nav = () => {
                   {navOpen ? <i className="fa-regular fa-pen-to-square pr-2"></i> : ""} My Posts
                 </Link>
               </li>
-              <li className="p-2 hover:text-emerald-700 md:pr-2">
-                <Link to="/mycomments">
-                  {navOpen ? <i className="fa-regular fa-comment pr-2"></i> : ""} My Comments
-                </Link>
-              </li>
-
               <li onClick={handleLogout} className="cursor-pointer p-2 hover:text-emerald-700 md:pr-2">
                 {navOpen ? <i className="fa-solid fa-arrow-right-from-bracket pr-2"></i> : ""} Logout
               </li>

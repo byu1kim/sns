@@ -19,9 +19,9 @@ const ForgetPassword = () => {
   };
   return (
     <section className="max-w-xl m-auto">
-      <h1 className="text-center text-2xl font-bold text-emerald-500 mt-7">Forget Password</h1>
+      <h1 className="text-center text-2xl font-bold text-emerald-500 mt-7">Forgot Password</h1>
       <form onSubmit={handleSubmit} className="p-5 flex flex-col">
-        <div className="flex flex-col rounded-lg p-1 m-2 shadow-sm border-gray-200 border">
+        <div className="flex flex-col rounded-lg p-1 m-2 shadow-sm border-gray-200 border bg-white">
           <label htmlFor="username" className="text-xs pl-1 text-gray-400">
             Username
           </label>

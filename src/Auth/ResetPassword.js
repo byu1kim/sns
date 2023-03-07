@@ -30,7 +30,7 @@ const ResetPassword = () => {
       <h1 className="text-center text-2xl font-bold text-emerald-500 mt-7">Reset Password</h1>
 
       <form onSubmit={handleSubmit} className="p-5 flex flex-col">
-        <div className="flex flex-col rounded-lg p-1 m-2 shadow-sm border-gray-200 border">
+        <div className="flex flex-col rounded-lg p-1 m-2 shadow-sm border-gray-200 border bg-white">
           <label htmlFor="username" className="text-xs pl-1 text-gray-400">
             Username
           </label>
@@ -46,7 +46,7 @@ const ResetPassword = () => {
           />
         </div>
 
-        <div className="flex flex-col rounded-lg p-1 m-2 shadow-sm border-gray-200 border">
+        <div className="flex flex-col rounded-lg p-1 m-2 shadow-sm border-gray-200 border bg-white">
           <label htmlFor="code" className="text-xs pl-1 text-gray-400">
             Code
           </label>
@@ -62,7 +62,7 @@ const ResetPassword = () => {
           />
         </div>
 
-        <div className="flex flex-col rounded-lg p-1 m-2 shadow-sm border-gray-200 border">
+        <div className="flex flex-col rounded-lg p-1 m-2 shadow-sm border-gray-200 border bg-white">
           <label htmlFor="password" className="text-xs pl-1 text-gray-400">
             New Password
           </label>
@@ -78,7 +78,7 @@ const ResetPassword = () => {
           />
         </div>
 
-        <div className="flex flex-col rounded-lg p-1 m-2 shadow-sm border-gray-200 border">
+        <div className="flex flex-col rounded-lg p-1 m-2 shadow-sm border-gray-200 border bg-white">
           <label htmlFor="passwordconfirm" className="text-xs pl-1 text-gray-400">
             Confirm Password
           </label>

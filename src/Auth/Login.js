@@ -25,7 +25,7 @@ const Login = () => {
     <section className="max-w-xl m-auto">
       <h1 className="text-center text-2xl font-bold text-emerald-500 mt-7">Log In</h1>
       <form onSubmit={handleSubmit} className="p-5 flex flex-col">
-        <div className="flex flex-col rounded-lg p-1 m-2 shadow-sm border-gray-200 border">
+        <div className="flex flex-col rounded-lg p-1 m-2 shadow-sm border-gray-200 border bg-white">
           <label htmlFor="username" className="text-xs pl-1 text-gray-400">
             Username
           </label>
@@ -40,7 +40,7 @@ const Login = () => {
             className="rounded-lg p-1 focus: outline-none focus: ring-0"
           />
         </div>
-        <div className="flex flex-col p-1 rounded-lg m-2 shadow-sm border-gray-200 border">
+        <div className="flex flex-col p-1 rounded-lg m-2 shadow-sm border-gray-200 border bg-white">
           <label htmlFor="password" className="text-xs pl-1 text-gray-400">
             Passsword
           </label>
