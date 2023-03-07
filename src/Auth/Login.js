@@ -1,7 +1,7 @@
 import { useState, useContext } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { signIn } from "../cognito";
-import { AuthContext } from "../Auth/AuthContext";
+import { AuthContext } from "./AuthContext";
 
 const Login = () => {
   const navigate = useNavigate();

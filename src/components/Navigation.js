@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import * as cognito from "../cognito";
 import { useContext, useState, useEffect } from "react";
-import { AuthContext } from "../Auth/AuthContext";
+import { AuthContext } from "../auth/AuthContext";
 
 const Nav = () => {
   const { user, setUser } = useContext(AuthContext);
