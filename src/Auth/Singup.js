@@ -44,62 +44,106 @@ const Singup = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="p-5 flex flex-col mx-auto max-w-xl bg-gray-200">
-      <label htmlFor="firstname">First Name</label>
-      <input
-        type="text"
-        name="firstname"
-        value={firstname}
-        onChange={(e) => {
-          setFirstname(e.target.value);
-        }}
-        required
-      />
+    <section className="max-w-xl m-auto">
+      <h1 className="text-center text-2xl font-bold text-emerald-500 mt-7">Sing Up</h1>
 
-      <label htmlFor="lastname">Last Name</label>
-      <input
-        type="text"
-        name="lastname"
-        value={lastname}
-        onChange={(e) => {
-          setLastname(e.target.value);
-        }}
-        required
-      />
+      <form onSubmit={handleSubmit} className="p-5 flex flex-col">
+        <div className="flex flex-col rounded-lg p-1 m-2 shadow-sm border-gray-200 border">
+          <label htmlFor="firstname" className="text-xs pl-1 text-gray-400">
+            First Name
+          </label>
+          <input
+            type="text"
+            name="firstname"
+            value={firstname}
+            onChange={(e) => {
+              setFirstname(e.target.value);
+            }}
+            required
+            className="rounded-lg p-1 focus: outline-none focus: ring-0"
+          />
+        </div>
 
-      <label htmlFor="username">Username</label>
-      <input
-        type="text"
-        name="username"
-        value={username}
-        onChange={(e) => {
-          setUsername(e.target.value);
-        }}
-        required
-      />
+        <div className="flex flex-col rounded-lg p-1 m-2 shadow-sm border-gray-200 border">
+          <label htmlFor="lastname" className="text-xs pl-1 text-gray-400">
+            Last Name
+          </label>
+          <input
+            type="text"
+            name="lastname"
+            value={lastname}
+            onChange={(e) => {
+              setLastname(e.target.value);
+            }}
+            required
+            className="rounded-lg p-1 focus: outline-none focus: ring-0"
+          />
+        </div>
 
-      <label htmlFor="email">Email</label>
-      <input
-        type="email"
-        name="email"
-        value={email}
-        onChange={(e) => {
-          setEmail(e.target.value);
-        }}
-        required
-      />
+        <div className="flex flex-col rounded-lg p-1 m-2 shadow-sm border-gray-200 border">
+          <label htmlFor="username" className="text-xs pl-1 text-gray-400">
+            Username
+          </label>
+          <input
+            type="text"
+            name="username"
+            value={username}
+            onChange={(e) => {
+              setUsername(e.target.value);
+            }}
+            required
+            className="rounded-lg p-1 focus: outline-none focus: ring-0"
+          />
+        </div>
 
-      <label htmlFor="password">Password</label>
-      <input type="password" name="password" onChange={(e) => setPassword(e.target.value)} required />
+        <div className="flex flex-col rounded-lg p-1 m-2 shadow-sm border-gray-200 border">
+          <label htmlFor="email" className="text-xs pl-1 text-gray-400">
+            Email
+          </label>
+          <input
+            type="email"
+            name="email"
+            value={email}
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
+            required
+            className="rounded-lg p-1 focus: outline-none focus: ring-0"
+          />
+        </div>
 
-      <label htmlFor="passwordconfirm">Password confirmation</label>
-      <input type="password" name="passwordconfirm" onChange={(e) => setPasswordConfirm(e.target.value)} required />
+        <div className="flex flex-col rounded-lg p-1 m-2 shadow-sm border-gray-200 border">
+          <label htmlFor="password" className="text-xs pl-1 text-gray-400">
+            Password
+          </label>
+          <input
+            type="password"
+            name="password"
+            onChange={(e) => setPassword(e.target.value)}
+            required
+            className="rounded-lg p-1 focus: outline-none focus: ring-0"
+          />
+        </div>
 
-      <p className="text-red-500">{error}</p>
-      <button type="submit" className="bg-rose-200 w-40 m-3 mx-auto hover:cursor-pointer hover:bg-rose-400">
-        Submit
-      </button>
-    </form>
+        <div className="flex flex-col rounded-lg p-1 m-2 shadow-sm border-gray-200 border">
+          <label htmlFor="passwordconfirm" className="text-xs pl-1 text-gray-400">
+            Password confirmation
+          </label>
+          <input
+            type="password"
+            name="passwordconfirm"
+            onChange={(e) => setPasswordConfirm(e.target.value)}
+            required
+            className="rounded-lg p-1 focus: outline-none focus: ring-0"
+          />
+        </div>
+
+        <p className="text-red-500 p-2">{error}</p>
+        <button type="submit" className="bg-emerald-500 text-white m-2 rounded-lg p-2 hover:bg-emerald-700">
+          Sign Up
+        </button>
+      </form>
+    </section>
   );
 };
 

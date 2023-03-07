@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import * as cognito from "../cognito";
-import axios from "axios";
+import Create from "../Components/Create";
 
 const Home = () => {
   const [posts, setPosts] = useState([]);
@@ -19,46 +19,42 @@ const Home = () => {
     getPosts();
   }, []);
 
-  const handleSubmit = async (postId) => {
-    try {
-      const result = await fetch("https://6otj0lkpn2.execute-api.ca-central-1.amazonaws.com/comments", {
-        method: "POST",
-        body: JSON.stringify({ content: comment, postId }),
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: token,
-        },
-      }).then((res) => res.json());
-      console.log(result);
-      //setPosts(result);
-    } catch {
-      //setPosts();
-    }
-  };
-
   return (
-    <div>
-      This is Homepage
-      <div>
-        <div className="text-sky-500">{posts ? posts.length : "aa"}</div>
+    <section className="bg-gray-200 max-w-2xl m-auto">
+      <Create />
+      <div className="bg-gray-200">
+        <div className="text-right text-gray-500 pr-7">{posts ? <>Total {posts.length} Posts</> : "aa"}</div>
         {posts
-          ? posts.map((post) => (
-              <ul key={post.post_id}>
-                <li>
-                  User : {post.firstname} {post.lastname}
+          ? posts.map((post, index) => (
+              <ul key={index} className="bg-white p-5 m-5 rounded-md shadow-md">
+                <li className="flex items-center mb-5">
+                  <div className="rounded-full bg-gray-300 w-12 h-12"></div>
+                  <div className="pl-5">
+                    <div className="font-bold">
+                      {post.firstname} {post.lastname}
+                    </div>
+                    <div className="text-xs text-gray-500">{post.created && post.created.split("T")[0]}</div>
+                  </div>
                 </li>
-                <li className="font-bold">
-                  <Link to={`/${post.post_id}`} post={post}>
-                    Title : {post.title}
-                  </Link>
+                <Link to={`/${post.id}`} post={post}>
+                  <li className="font-bold px-2">{post.title}</li>
+                  <li className="px-2 pb-5">{post.content}</li>
+                </Link>
+                <hr />
+                <li className="flex justify-between pt-5 text-lg text-gray-500">
+                  <button className="flex justify-center items-center w-full hover:text-emerald-500">
+                    <i className="fa-regular fa-heart pr-2"></i>Like
+                  </button>
+                  <button className="flex justify-center items-center w-full hover:text-emerald-500">
+                    <i className="fa-regular fa-comment pr-2"></i>
+                    {post.count} Comment
+                  </button>
                 </li>
-                <li>Content : {post.content}</li>
-                <li>Create : {post.created}</li>
               </ul>
             ))
           : "Error!"}
       </div>
-    </div>
+    </section>
   );
 };
 

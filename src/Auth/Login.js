@@ -22,34 +22,57 @@ const Login = () => {
     }
   };
   return (
-    <form onSubmit={handleSubmit} className="p-5 flex flex-col mx-auto max-w-xl bg-gray-200">
-      <label htmlFor="username">Username</label>
-      <input
-        type="text"
-        name="username"
-        value={username}
-        onChange={(e) => {
-          setUsername(e.target.value);
-        }}
-        required
-      />
-
-      <label htmlFor="password">Passsword</label>
-      <input
-        type="password"
-        name="password"
-        value={password}
-        onChange={(e) => {
-          setPassword(e.target.value);
-        }}
-        required
-      />
-      <p className="text-red-500">{!!error && error}</p>
-      <Link to="/forget">Forgot password?</Link>
-      <button type="submit" className="bg-rose-200 w-40 m-3 mx-auto hover:cursor-pointer hover:bg-rose-400">
-        Submit
-      </button>
-    </form>
+    <section className="max-w-xl m-auto">
+      <h1 className="text-center text-2xl font-bold text-emerald-500 mt-7">Log In</h1>
+      <form onSubmit={handleSubmit} className="p-5 flex flex-col">
+        <div className="flex flex-col rounded-lg p-1 m-2 shadow-sm border-gray-200 border">
+          <label htmlFor="username" className="text-xs pl-1 text-gray-400">
+            Username
+          </label>
+          <input
+            type="text"
+            name="username"
+            value={username}
+            onChange={(e) => {
+              setUsername(e.target.value);
+            }}
+            required
+            className="rounded-lg p-1 focus: outline-none focus: ring-0"
+          />
+        </div>
+        <div className="flex flex-col p-1 rounded-lg m-2 shadow-sm border-gray-200 border">
+          <label htmlFor="password" className="text-xs pl-1 text-gray-400">
+            Passsword
+          </label>
+          <input
+            type="password"
+            name="password"
+            value={password}
+            onChange={(e) => {
+              setPassword(e.target.value);
+            }}
+            required
+            className="rounded-lg p-1 focus: outline-none , focus: ring-0 "
+          />
+        </div>
+        <p className="text-red-500">{!!error && error}</p>
+        <div className="text-center mb-5 text-gray-500">
+          Forgot your password?{" "}
+          <Link to="/forget" className="text-emerald-500 font-bold hover:text-emerald-700">
+            Click Here
+          </Link>
+        </div>
+        <button type="submit" className="bg-emerald-500 text-white m-2 rounded-lg p-2 hover:bg-emerald-700">
+          Log In
+        </button>
+        <div className="text-center mb-5 text-gray-500">
+          Don't have an account?{" "}
+          <Link to="/signup" className="text-emerald-500 font-bold hover:text-emerald-700">
+            Sign up
+          </Link>
+        </div>
+      </form>
+    </section>
   );
 };
 

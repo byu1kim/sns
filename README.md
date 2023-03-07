@@ -2,4 +2,7 @@
 
 - [ ] update user after login
 - [ ] add profile image
-- [ ] style
+- [v] style
+- [ ] authenticated routes
+- [ ] edit, delete
+- [ ] like
