@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Nav from "./Components/Navigation.js";
+import Nav from "./components/Navigation.js";
 import Home from "./Routes/Home.js";
 import Profile from "./Routes/Profile.js";
 import MyPosts from "./Routes/MyPosts.js";
@@ -9,7 +9,7 @@ import ConfirmUser from "./Auth/ConfirmUser.js";
 import ForgetPassword from "./Auth/ForgetPassword.js";
 import ResetPassword from "./Auth/ResetPassword.js";
 import PostDetail from "./Routes/PostDetail.js";
-import Footer from "./Components/Footer.js";
+import Footer from "./components/Footer.js";
 
 function App() {
   return (

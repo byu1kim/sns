@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import * as cognito from "../cognito";
-import Create from "../Components/Create";
+import Create from "../components/Create";
 import jwtDecode from "jwt-decode";
 
 const Home = () => {
