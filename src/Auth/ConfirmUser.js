@@ -35,7 +35,9 @@ function ConfirmUser() {
         }}
         required
       />
-      <button type="submit" className="bg-rose-200 w-40 m-3 mx-auto hover:cursor-pointer hover:bg-rose-400"></button>
+      <button type="submit" className="bg-rose-200 w-40 m-3 mx-auto hover:cursor-pointer hover:bg-rose-400">
+        Submit
+      </button>
     </form>
   );
 }

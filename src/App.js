@@ -12,7 +12,7 @@ import Signup from "./Auth/Singup";
 import ConfirmUser from "./Auth/ConfirmUser";
 import ForgetPassword from "./Auth/ForgetPassword";
 import ResetPassword from "./Auth/ResetPassword";
-import { AuthContext } from "./Auth/AuthContext";
+import PostDetail from "./Routes/PostDetail.js";
 
 function App() {
   return (
@@ -23,6 +23,7 @@ function App() {
         <Route path="/singup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
 
+        <Route path="/:id" element={<PostDetail />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/create" element={<Create />} />
         <Route path="/myposts" element={<MyPosts />} />

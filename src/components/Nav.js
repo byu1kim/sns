@@ -12,7 +12,7 @@ const Nav = () => {
   };
 
   return (
-    <nav className="bg-red-200">
+    <nav className="bg-rose-400">
       <ul>
         <li>
           <Link to="/">Home</Link>
