@@ -2,15 +2,15 @@
 
 - [ ] protected routes : profile
 - [ ] update user after login
-- [ ] update after creating posts, commemnts
-- [ ] add profile image
-
-- [ ] profile edit, delete
-- [ ] comment edit, delete
-- [ ] like
-- [ ] Loading page
-- [ ] My Comments?
+- [v] update after creating posts, commemnts
+- [v] post delete
+- [v] comment delete
+- [v] Loading page
 - [v] style
+- [ ] profile edit, comment edit, profile delete
+
+- [ ] like
+- [ ] add profile image, firstname, lastname,
 
 # Routes
 

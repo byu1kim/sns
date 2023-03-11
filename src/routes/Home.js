@@ -26,7 +26,7 @@ const Home = () => {
       setToken(userToken);
     }
     getpostings();
-  }, [postings]);
+  }, [postings, token]);
 
   // Handele deleting posting
   const handleDelete = async (id) => {

@@ -17,7 +17,9 @@ const PostDetail = () => {
   useEffect(() => {
     async function getPosts() {
       const a = await cognito.getAccessToken();
-      setToken(a);
+      if (a) {
+        setToken(a);
+      }
 
       Promise.all([
         fetch(`https://6otj0lkpn2.execute-api.ca-central-1.amazonaws.com/post/${id}`),
@@ -30,7 +32,7 @@ const PostDetail = () => {
         });
     }
     getPosts();
-  }, [comments, id]);
+  }, [comments, id, token]);
 
   const handleCommentDelete = async (commentId) => {
     console.log(commentId);
@@ -41,6 +43,7 @@ const PostDetail = () => {
           Authorization: token,
         },
       }).then((res) => res.json());
+
       if (del) {
         comments.shift();
         setComments(comments);
