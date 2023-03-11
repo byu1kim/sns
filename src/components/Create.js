@@ -1,24 +1,34 @@
 import { useState } from "react";
 import * as cognito from "../Cognito.js";
-const Create = () => {
+const Create = ({ postings, setPostings }) => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
+  const [error, setError] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    try {
+      // Receive Token from Cognito
+      const token = await cognito.getAccessToken();
 
-    // Receive Token from Cognito
-    const token = await cognito.getAccessToken();
+      // Send data to the Server
+      const result = await fetch("https://6otj0lkpn2.execute-api.ca-central-1.amazonaws.com/post", {
+        method: "POST",
+        body: JSON.stringify({ title, content }),
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: token,
+        },
+      }).then((res) => res.json());
 
-    // Send data to the Server
-    await fetch("https://6otj0lkpn2.execute-api.ca-central-1.amazonaws.com/posts", {
-      method: "POST",
-      body: JSON.stringify({ title, content }),
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: token,
-      },
-    }).then((res) => res.json());
+      if (result) {
+        setTitle("");
+        setContent("");
+        setPostings([result.rows[0], ...postings]);
+      }
+    } catch (err) {
+      setError(err);
+    }
   };
 
   return (
@@ -51,6 +61,7 @@ const Create = () => {
           Post
         </button>
       </form>
+      <p>{!!error && error}</p>
     </div>
   );
 };

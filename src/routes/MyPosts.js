@@ -5,7 +5,6 @@ import * as cognito from "../Cognito.js";
 const MyPosts = () => {
   const [posts, setPosts] = useState();
 
-  console.log(posts);
   useEffect(() => {
     const getMyPosts = async () => {
       const token = await cognito.getAccessToken();
@@ -17,7 +16,6 @@ const MyPosts = () => {
             Authorization: token,
           },
         }).then((res) => res.json());
-        console.log(result);
         setPosts(result);
       } catch {
         setPosts();

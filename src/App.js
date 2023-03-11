@@ -16,12 +16,17 @@ function App() {
     <BrowserRouter>
       <Nav />
       <Routes>
+        {/* Public Pages */}
         <Route path="/" exact element={<Home />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/:id" element={<PostDetail />} />
+        <Route path="/post/:id" element={<PostDetail />} />
+
+        {/* Protected Pages */}
         <Route path="/profile" element={<Profile />} />
         <Route path="/myposts" element={<MyPosts />} />
+
+        {/* Authenticattion */}
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/confirm" element={<ConfirmUser />} />
         <Route path="/forget" element={<ForgetPassword />} />
         <Route path="/reset" element={<ResetPassword />} />

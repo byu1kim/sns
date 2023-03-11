@@ -19,8 +19,6 @@ function promisify(func) {
 
 // Add VITE_USER_POOL_ID, and VITE_USER_POOL_CLIENT_ID to a .env.local file in your project root
 const poolData = {
-  // UserPoolId: "ca-central-1_CrfMdznMi",
-  // ClientId: "t2q6urimjb6cbleiibro0icpp",
   UserPoolId: process.env.REACT_APP_USER_POOL_ID,
   ClientId: process.env.REACT_APP_CLIENT_ID,
 };
@@ -44,9 +42,14 @@ async function getUserSession() {
  * @returns {Promise<string>}
  */
 export async function getAccessToken() {
-  const session = await getUserSession();
-  const jwt = session?.accessToken?.jwtToken;
-  return jwt;
+  try {
+    const session = await getUserSession();
+    const jwt = session?.accessToken?.jwtToken;
+    return jwt;
+  } catch (err) {
+    console.log(err);
+    return false;
+  }
 }
 
 /**
@@ -54,7 +57,12 @@ export async function getAccessToken() {
  * @returns {CognitoUser}
  */
 export function getCurrentUser() {
-  return userPool.getCurrentUser();
+  try {
+    return userPool.getCurrentUser();
+  } catch (err) {
+    console.log(err);
+    return false;
+  }
 }
 
 /**

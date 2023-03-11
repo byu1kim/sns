@@ -2,22 +2,25 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import * as cognito from "../Cognito.js";
 import jwtDecode from "jwt-decode";
+import AddComment from "../components/AddComment";
 
 const PostDetail = () => {
   const [post, setPost] = useState();
   const [token, setToken] = useState();
-  const [comment, setComment] = useState("");
   const [comments, setComments] = useState([]);
+  const [error, setError] = useState("");
 
   let { id } = useParams();
   let decoded = token ? jwtDecode(token) : "";
+
+  // Loading both posting and comments
   useEffect(() => {
     async function getPosts() {
       const a = await cognito.getAccessToken();
       setToken(a);
 
       Promise.all([
-        fetch(`https://6otj0lkpn2.execute-api.ca-central-1.amazonaws.com/${id}`),
+        fetch(`https://6otj0lkpn2.execute-api.ca-central-1.amazonaws.com/post/${id}`),
         fetch(`https://6otj0lkpn2.execute-api.ca-central-1.amazonaws.com/comments/${id}`),
       ])
         .then(([resPost, resComments]) => Promise.all([resPost.json(), resComments.json()]))
@@ -27,27 +30,29 @@ const PostDetail = () => {
         });
     }
     getPosts();
-  }, [id]);
+  }, [comments, id]);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleCommentDelete = async (commentId) => {
+    console.log(commentId);
     try {
-      const result = await fetch("https://6otj0lkpn2.execute-api.ca-central-1.amazonaws.com/comments", {
-        method: "POST",
-        body: JSON.stringify({ content: comment, postId: id }),
+      const del = await fetch(`https://6otj0lkpn2.execute-api.ca-central-1.amazonaws.com/comments/${commentId}`, {
+        method: "DELETE",
         headers: {
-          "Content-Type": "application/json",
           Authorization: token,
         },
       }).then((res) => res.json());
-      console.log(result);
-      //setPosts(result);
-    } catch {
-      //setPosts();
+      if (del) {
+        comments.shift();
+        setComments(comments);
+      }
+    } catch (err) {
+      setError(err);
     }
   };
+
   return (
     <div className="bg-gray-200 m-auto max-w-2xl">
+      {!!error && error}
       {!!post ? (
         <ul className="bg-white p-5 m-5 rounded-md shadow-md">
           <li className="flex items-center mb-5">
@@ -56,7 +61,7 @@ const PostDetail = () => {
               <div className="font-bold">
                 {post.firstname} {post.lastname}
               </div>
-              <div className="text-xs text-gray-500">{post.created.split("T")[0]}</div>
+              <div className="text-xs text-gray-500">{post.created?.split("T")[0]}</div>
             </div>
           </li>
 
@@ -87,7 +92,7 @@ const PostDetail = () => {
                       <div>{item.content}</div>
                       <div className="text-xs">{item.created.split("T")[0]}</div>
                       {post.user_id === decoded.sub ? (
-                        <button>
+                        <button onClick={() => handleCommentDelete(item.cid)}>
                           <i className="fa-regular fa-trash-can"></i>
                         </button>
                       ) : (
@@ -100,22 +105,7 @@ const PostDetail = () => {
           </li>
 
           <li className="pt-2">
-            <form className="flex items-center" onSubmit={handleSubmit}>
-              <div className="rounded-full bg-gray-300 w-10 h-10 p-5"></div>
-              <label htmlFor="comment"></label>
-              <input
-                type="text"
-                name="comment"
-                placeholder="Add a comment..."
-                value={comment}
-                onChange={(e) => setComment(e.target.value)}
-                required
-                className="shadow-md border border-gray-200 rounded-lg w-full focus: outline-emerald-500 m-2 p-2"
-              />
-              <button type="submit" className="bg-gray-300 text-white rounded-lg px-4 py-2 hover:bg-emerald-500">
-                Leave
-              </button>
-            </form>
+            <AddComment token={token} id={id} comments={comments} setComments={setComments} />
           </li>
         </ul>
       ) : (
