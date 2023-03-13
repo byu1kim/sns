@@ -1,16 +1,18 @@
 import { Link } from "react-router-dom";
 import * as cognito from "../Cognito.js";
-import { useContext, useState, useEffect } from "react";
+import { useContext, useState, useEffect, useNavigate } from "react";
 import { AuthContext } from "../authentication/AuthContext";
 
 const Nav = () => {
   const { user, setUser } = useContext(AuthContext);
 
+  const navigate = useNavigate();
   const [navOpen, setNavOpen] = useState(false);
 
   const handleLogout = () => {
     cognito.signOut();
     setUser("");
+    navigate("/profile");
   };
 
   const isDesktop = (e) => {

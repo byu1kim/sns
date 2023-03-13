@@ -62,6 +62,12 @@ const Login = () => {
             Click Here
           </Link>
         </div>
+        <div className="text-center mb-5 text-gray-500">
+          Reset your password?{" "}
+          <Link to="/reset" className="text-emerald-500 font-bold hover:text-emerald-700">
+            Click Here
+          </Link>
+        </div>
         <button type="submit" className="bg-emerald-500 text-white m-2 rounded-lg p-2 hover:bg-emerald-700">
           Log In
         </button>
