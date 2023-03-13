@@ -16,11 +16,6 @@ const PostDetail = () => {
   // Loading both posting and comments
   useEffect(() => {
     async function getPosts() {
-      const a = await cognito.getAccessToken();
-      if (a) {
-        setToken(a);
-      }
-
       Promise.all([
         fetch(`https://6otj0lkpn2.execute-api.ca-central-1.amazonaws.com/post/${id}`),
         fetch(`https://6otj0lkpn2.execute-api.ca-central-1.amazonaws.com/comments/${id}`),
@@ -30,9 +25,14 @@ const PostDetail = () => {
           setPost(dataPost);
           setComments(dataComments);
         });
+
+      const a = await cognito.getAccessToken();
+      if (a) {
+        setToken(a);
+      }
     }
     getPosts();
-  }, [comments, id, token]);
+  }, [token]);
 
   const handleCommentDelete = async (commentId) => {
     console.log(commentId);

@@ -16,19 +16,17 @@ const Home = () => {
   // Load postings item from server
   useEffect(() => {
     async function getpostings() {
-      const data = await fetch("https://6otj0lkpn2.execute-api.ca-central-1.amazonaws.com/posts").then((res) =>
-        res.json()
-      );
+      const data = await fetch("https://6otj0lkpn2.execute-api.ca-central-1.amazonaws.com/").then((res) => res.json());
       setPostings(data);
       setLoading(false);
 
       const userToken = await cognito.getAccessToken();
-      if (!!userToken) {
+      if (userToken) {
         setToken(userToken);
       }
     }
     getpostings();
-  }, [postings, token]);
+  }, [token]);
 
   // Handele deleting posting
   const handleDelete = async (id) => {
@@ -59,7 +57,7 @@ const Home = () => {
         <div className="text-right text-gray-500 pr-7 pt-5">
           {postings ? <>Total {postings.length} postings</> : "aa"}
         </div>
-        {postings
+        {!!postings
           ? postings.map((post, index) => (
               <ul key={index} className="bg-white p-5 m-5 rounded-md shadow-md">
                 <li className="flex items-center mb-5">
