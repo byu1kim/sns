@@ -40,7 +40,7 @@ const Comment = ({ token, id, comments, setComments }) => {
           className="shadow-md border border-gray-200 rounded-lg w-full focus: outline-emerald-500 m-2 p-2"
         />
         <button type="submit" className="bg-gray-300 text-white rounded-lg px-4 py-2 hover:bg-emerald-500">
-          Leave
+          Add
         </button>
       </form>
     </>
