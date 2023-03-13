@@ -9,10 +9,12 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     async function initialUser() {
       const result = await cognito.getCurrentUser();
-      setUser(result);
+      if (result) {
+        setUser(result);
+      }
     }
     initialUser();
-  }, []);
+  }, [user]);
 
   return <AuthContext.Provider value={{ user, setUser }}>{children}</AuthContext.Provider>;
 };

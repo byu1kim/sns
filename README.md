@@ -1,7 +1,7 @@
 # TODO
 
 - [ ] protected routes : profile
-- [ ] update user after login
+- [v] update user after login
 - [v] update after creating posts, commemnts
 - [v] post delete
 - [v] comment delete

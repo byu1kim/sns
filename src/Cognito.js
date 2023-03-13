@@ -47,7 +47,7 @@ export async function getAccessToken() {
     const jwt = session?.accessToken?.jwtToken;
     return jwt;
   } catch (err) {
-    console.log(err);
+    //console.log(err);
     return false;
   }
 }
@@ -60,7 +60,7 @@ export function getCurrentUser() {
   try {
     return userPool.getCurrentUser();
   } catch (err) {
-    console.log(err);
+    //console.log(err);
     return false;
   }
 }

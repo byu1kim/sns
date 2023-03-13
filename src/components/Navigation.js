@@ -27,7 +27,7 @@ const Nav = () => {
     let mediaQuery = window.matchMedia("(min-width: 800px");
     mediaQuery.addEventListener("change", isDesktop);
     return () => mediaQuery.addEventListener("change", isDesktop);
-  }, []);
+  }, [user]);
 
   return (
     <nav className="bg-emerald-500 text-white flex flex-wrap items-center justify-between w-full py-4 px-4">
@@ -50,15 +50,13 @@ const Nav = () => {
           {user ? (
             <>
               <li className="p-2 hover:text-emerald-700 md:pr-2">
-                <Link to="/">{navOpen ? <i className="fa-solid fa-house pr-2"></i> : ""} Home</Link>
+                <a href="/">{navOpen ? <i className="fa-solid fa-house pr-2"></i> : ""} Home</a>
               </li>
               <li className="p-2 hover:text-emerald-700 md:pr-2">
-                <Link to="/profile">{navOpen ? <i className="fa-regular fa-user pr-2"></i> : ""} Profile</Link>
+                <a href="/profile">{navOpen ? <i className="fa-regular fa-user pr-2"></i> : ""} Profile</a>
               </li>
               <li className="p-2 hover:text-emerald-700 md:pr-2">
-                <Link to="/myposts">
-                  {navOpen ? <i className="fa-regular fa-pen-to-square pr-2"></i> : ""} My Posts
-                </Link>
+                <a href="/myposts">{navOpen ? <i className="fa-regular fa-pen-to-square pr-2"></i> : ""} My Posts</a>
               </li>
               <li onClick={handleLogout} className="cursor-pointer p-2 hover:text-emerald-700 md:pr-2">
                 {navOpen ? <i className="fa-solid fa-arrow-right-from-bracket pr-2"></i> : ""} Logout
@@ -73,7 +71,7 @@ const Nav = () => {
         ""
       ) : (
         <div className="bg-white text-emerald-500 rounded px-2 font-bold hover:bg-emerald-900">
-          <Link to="/login">Login</Link>
+          <a href="/login">Login</a>
         </div>
       )}
     </nav>

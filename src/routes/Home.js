@@ -23,7 +23,9 @@ const Home = () => {
       setLoading(false);
 
       const userToken = await cognito.getAccessToken();
-      setToken(userToken);
+      if (!!userToken) {
+        setToken(userToken);
+      }
     }
     getpostings();
   }, [postings, token]);
@@ -69,7 +71,7 @@ const Home = () => {
                     <div className="text-xs text-gray-500">{post.created && post.created.split("T")[0]}</div>
                   </div>
                   <div className="flex-end text-gray-500 pr-2">
-                    {post.user_id === decoded.sub ? (
+                    {post.user_id === decoded?.sub ? (
                       <button onClick={() => handleDelete(post.id)}>
                         <i className="fa-regular fa-trash-can"></i>
                       </button>
